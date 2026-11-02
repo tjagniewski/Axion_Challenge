@@ -8,7 +8,7 @@ def mini_simulator(v, b):
     if b.shape != (2, 2):
         return(print("Nieprawidłowa bramka"))
     else:
-        return v.T @ b
+        return np.round(v.T @ b, 5)
 
 ket_0 = np.array([1, 0])
 X = np.array([[0, 1],
@@ -38,6 +38,8 @@ print(mini_simulator(ket_0, Ry(np.pi / 2)))
 
 print(mini_simulator(ket_0, X))
 
+print(mini_simulator(ket_0, H @ H))
+
 # funkcja dostosowana dla 2-kubitowych stanów 
 def mini_simulator2(v, b):
     if abs(sum(v)) != 1 or v.shape != (4,):
@@ -45,7 +47,7 @@ def mini_simulator2(v, b):
     if b.shape != (4, 4):
         return(print("Nieprawidłowa bramka"))
     else:
-        return v.T @ b
+        return np.round(v.T @ b, 5)
 
 ket_00 = np.array([1, 0, 0, 0])
 
